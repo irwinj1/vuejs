@@ -1,0 +1,28 @@
+.data{
+    text-align: end;
+}
+h2{
+    margin-top: 5px;
+    color: gold;
+}
+h3{
+    font-size: 40px;
+
+    & .cripto{
+        color: tomato;
+        
+    }
+    & .moneda{
+        color: lime;
+    }
+}
+img{
+   width: 170px;
+}
+p{
+    font-size: 50px;
+
+    & strong{
+        color: orange;
+    }
+}
