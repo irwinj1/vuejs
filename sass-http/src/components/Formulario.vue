@@ -1,24 +1,24 @@
 <template>
   <div>
-    <form>
+    <form @submit.prevent="$emit('infoMonedas', cripto, moneda)">
       <div>
         <label>Moneda Nacionas: </label>
-        <select>
+        <select v-model="moneda" required>
           <option value="" disabled selected>Seleccione una Moneda...</option>
-          <option value="">MXN</option>
-          <option value="">USD</option>
-          <option value="">EUR</option>
+          <option>MXN</option>
+          <option>USD</option>
+          <option>EUR</option>
         </select>
       </div>
       <div>
         <label>Cripto Moneda: </label>
-        <select>
+        <select v-model="cripto" required>
           <option value="" disabled selected>
             Seleccione una Criptomoneda...
           </option>
-          <option value="">BTC</option>
-          <option value="">ETH</option>
-          <option value="">LTC</option>
+          <option>BTC</option>
+          <option>ETH</option>
+          <option>LTC</option>
         </select>
       </div>
       <div>
@@ -29,5 +29,10 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data: () => ({
+    moneda: "",
+    cripto: "",
+  }),
+};
 </script>
