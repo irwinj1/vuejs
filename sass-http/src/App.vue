@@ -1,53 +1,23 @@
 <template>
-  <div class="container">
-    <h1>Cotizador de Criptomonedas</h1>
-    <grid>
-      <formulario @info-monedas="obtener" />
-      <Data
-        :cripto="info.cripto"
-        :moneda="info.moneda"
-        :img="info.img"
-        :precio="info.precio"
-      />
-    </grid>
-    <reload-prompt />
-  </div>
+  <v-app>
+    <v-main>
+      <HelloWorld/>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import Data from "./components/Data.vue";
-import Formulario from "./components/Formulario.vue";
-import Grid from "./components/Grid.vue";
-import ReloadPrompt from "./components/ReloadPrompt.vue";
-export default {
-  components: { Formulario, Data, Grid, ReloadPrompt },
-  data: () => {
-    return {
-      info: {
-        cripto: "*",
-        moneda: "*",
-        img: "/media/37746243/ltc.png",
-        precio: 0,
-      },
-    };
-  },
-  methods: {
-    async obtener(cripto, moneda) {
-      const res = await fetch(
-        `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${encodeURI(
-          cripto
-        )}&tsyms=${encodeURI(moneda)}`
-      );
-      const { RAW } = await res.json();
-      const dataCripto = RAW[cripto];
-      const data = dataCripto[moneda];
-      console.log(data);
-      this.info.cripto = cripto;
-      this.info.moneda = moneda;
-      this.info.img = data.IMAGEURL;
-      this.info.precio = data.PRICE;
-    },
-  },
-};
-</script>
+import HelloWorld from './components/HelloWorld.vue'
 
+export default {
+  name: 'App',
+
+  components: {
+    HelloWorld,
+  },
+
+  data: () => ({
+    //
+  }),
+}
+</script>

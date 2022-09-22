@@ -1,5 +1,6 @@
 <template>
   <div>
+    <v-file-input truncate-length="15"></v-file-input>
     <form @submit.prevent="$emit('infoMonedas', cripto, moneda)">
       <div>
         <label>Moneda Nacionas: </label>

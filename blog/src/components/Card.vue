@@ -6,14 +6,20 @@
       <p class="card-text">
         {{ post.description }}
       </p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <RouterLink :to="`/edit/${post._id}`" class="btn btn-primary"
+        >Editar</RouterLink
+      >
     </div>
   </div>
 </template>
 
 <script>
+import { RouterLink } from "vue-router";
 export default {
+  components: { RouterLink },
   props: ["post"],
+
+  methods: {},
 };
 </script>
 
